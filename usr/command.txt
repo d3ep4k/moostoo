@@ -1,0 +1,9 @@
+class A implements Loopable{
+    
+    public void code(String nextLine){
+        $.type(nextLine);
+        $.delay(2000) ;
+    }
+}
+
+$.loop(new A());
