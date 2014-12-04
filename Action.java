@@ -1,12 +1,22 @@
-import java.util.*;import java.io.*;import java.awt.*;import org.jnativehook.GlobalScreen;import org.jnativehook.keyboard.NativeKeyEvent;
+import java.util.*;
+import java.io.*;
+import java.awt.*;
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
-public class Action implements NativeKeyListener{private static $$ $;
-private static final  Action A = new Action();
-private Action(){try {$ = new $$();
-GlobalScreen.getInstance().addNativeKeyListener(this);
-}catch(java.awt.AWTException e){}}public static void main(String args[]){$.delay(2000);
-A.main();
-System.exit(0);}
+public class Action implements NativeKeyListener{
+    private static $$ $;
+    private static final  Action A = new Action();
+    private Action(){
+        try {$ = new $$();
+        GlobalScreen.getInstance().addNativeKeyListener(this);
+        }catch(java.awt.AWTException e){}}
+    
+    public static void main(String args[]){$.delay(2000);
+            A.main();
+            System.exit(0);
+        
+    }
 /*****Script*****/
 void main()
 {
@@ -24,6 +34,10 @@ void recordedCode(){
 
 }
 
-public void keyPressed(NativeKeyEvent nke) {     if (nke.getKeyCode() == NativeKeyEvent.VK_F8) {         System.out.println("Process Aborted due to Interrupt.");
-         System.exit(0);
-     }  }public void keyReleased(NativeKeyEvent nke) {}}
+public void keyPressed(NativeKeyEvent nke) {    
+    if (nke.getKeyCode() == NativeKeyEvent.VK_F8) {     
+        System.out.println("Process Aborted due to Interrupt.");
+        System.exit(0);
+     }  
+   
+}public void keyReleased(NativeKeyEvent nke) {}}
