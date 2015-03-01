@@ -1,6 +1,10 @@
 package net.metamug.moostoo;
 
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
@@ -8,15 +12,15 @@ import java.awt.datatransfer.Transferable;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-
+import org.jnativehook.keyboard.NativeKeyEvent;
 
 /**
  *
@@ -581,176 +585,177 @@ public class $$ extends Robot implements ClipboardOwner {
     }
 
     /**
+     * Get Key Code from Native key code
      *
      * @param nativeKeyCode
      * @return
      */
-//    public static int getKey(int nativeKeyCode) {
-//        switch (nativeKeyCode) {
-//            case NativeKeyEvent.VK_A:
-//                return (KeyEvent.VK_A);
-//
-//            case NativeKeyEvent.VK_B:
-//                return (KeyEvent.VK_B);
-//
-//            case NativeKeyEvent.VK_C:
-//                return (KeyEvent.VK_C);
-//
-//            case NativeKeyEvent.VK_D:
-//                return (KeyEvent.VK_D);
-//
-//            case NativeKeyEvent.VK_E:
-//                return (KeyEvent.VK_E);
-//
-//            case NativeKeyEvent.VK_F:
-//                return (KeyEvent.VK_F);
-//
-//            case NativeKeyEvent.VK_G:
-//                return (KeyEvent.VK_G);
-//
-//            case NativeKeyEvent.VK_H:
-//                return (KeyEvent.VK_H);
-//
-//            case NativeKeyEvent.VK_I:
-//                return (KeyEvent.VK_I);
-//
-//            case NativeKeyEvent.VK_J:
-//                return (KeyEvent.VK_J);
-//
-//            case NativeKeyEvent.VK_K:
-//                return (KeyEvent.VK_K);
-//
-//            case NativeKeyEvent.VK_L:
-//                return (KeyEvent.VK_L);
-//
-//            case NativeKeyEvent.VK_M:
-//                return (KeyEvent.VK_M);
-//
-//            case NativeKeyEvent.VK_N:
-//                return (KeyEvent.VK_N);
-//
-//            case NativeKeyEvent.VK_O:
-//                return (KeyEvent.VK_O);
-//
-//            case NativeKeyEvent.VK_P:
-//                return (KeyEvent.VK_P);
-//
-//            case NativeKeyEvent.VK_Q:
-//                return (KeyEvent.VK_Q);
-//
-//            case NativeKeyEvent.VK_R:
-//                return (KeyEvent.VK_R);
-//
-//            case NativeKeyEvent.VK_S:
-//                return (KeyEvent.VK_S);
-//
-//            case NativeKeyEvent.VK_T:
-//                return (KeyEvent.VK_T);
-//
-//            case NativeKeyEvent.VK_U:
-//                return (KeyEvent.VK_U);
-//
-//            case NativeKeyEvent.VK_V:
-//                return (KeyEvent.VK_V);
-//
-//            case NativeKeyEvent.VK_W:
-//                return (KeyEvent.VK_W);
-//
-//            case NativeKeyEvent.VK_X:
-//                return (KeyEvent.VK_X);
-//
-//            case NativeKeyEvent.VK_Y:
-//                return (KeyEvent.VK_Y);
-//
-//            case NativeKeyEvent.VK_Z:
-//                return (KeyEvent.VK_Z);
-//
-//            case NativeKeyEvent.VK_BACK_QUOTE:
-//                return (KeyEvent.VK_BACK_QUOTE);
-//
-//            case NativeKeyEvent.VK_0:
-//                return (KeyEvent.VK_0);
-//
-//            case NativeKeyEvent.VK_1:
-//                return (KeyEvent.VK_1);
-//
-//            case NativeKeyEvent.VK_2:
-//                return (KeyEvent.VK_2);
-//
-//            case NativeKeyEvent.VK_3:
-//                return (KeyEvent.VK_3);
-//
-//            case NativeKeyEvent.VK_4:
-//                return (KeyEvent.VK_4);
-//
-//            case NativeKeyEvent.VK_5:
-//                return (KeyEvent.VK_5);
-//
-//            case NativeKeyEvent.VK_6:
-//                return (KeyEvent.VK_6);
-//
-//            case NativeKeyEvent.VK_7:
-//                return (KeyEvent.VK_7);
-//
-//            case NativeKeyEvent.VK_8:
-//                return (KeyEvent.VK_8);
-//
-//            case NativeKeyEvent.VK_9:
-//                return (KeyEvent.VK_9);
-//
-//            case NativeKeyEvent.VK_MINUS:
-//                return (KeyEvent.VK_MINUS);
-//
-//            case NativeKeyEvent.VK_EQUALS:
-//                return (KeyEvent.VK_EQUALS);
-//
-//            case NativeKeyEvent.VK_TAB:
-//                return (KeyEvent.VK_TAB);
-//
-//            case NativeKeyEvent.VK_ENTER:
-//                return (KeyEvent.VK_ENTER);
-//
-//            case NativeKeyEvent.VK_OPEN_BRACKET:
-//                return (KeyEvent.VK_OPEN_BRACKET);
-//
-//            case NativeKeyEvent.VK_CLOSE_BRACKET:
-//                return (KeyEvent.VK_CLOSE_BRACKET);
-//
-//            case NativeKeyEvent.VK_BACK_SLASH:
-//                return (KeyEvent.VK_BACK_SLASH);
-//
-//            case NativeKeyEvent.VK_SEMICOLON:
-//                return (KeyEvent.VK_SEMICOLON);
-//
-//            case NativeKeyEvent.VK_QUOTE:
-//                return (KeyEvent.VK_QUOTE);
-//
-//            case NativeKeyEvent.VK_COMMA:
-//                return (KeyEvent.VK_COMMA);
-//
-//            case NativeKeyEvent.VK_PERIOD:
-//                return (KeyEvent.VK_PERIOD);
-//
-//            case NativeKeyEvent.VK_SLASH:
-//                return (KeyEvent.VK_SLASH);
-//
-//            case NativeKeyEvent.VK_SPACE:
-//                return (KeyEvent.VK_SPACE);
-//
-//
-//            case NativeKeyEvent.VK_CONTROL:
-//                return (KeyEvent.VK_CONTROL);
-//
-//            case NativeKeyEvent.VK_ALT:
-//                return (KeyEvent.VK_ALT);
-//
-//            case NativeKeyEvent.VK_SHIFT:
-//                return (KeyEvent.VK_SHIFT);
-//
-//            default:
-//                throw new IllegalArgumentException("Cannot type character " + nativeKeyCode);
-//        }
-//    }
+    public static int getKey(int nativeKeyCode) {
+        switch (nativeKeyCode) {
+            case NativeKeyEvent.VK_A:
+                return (KeyEvent.VK_A);
+
+            case NativeKeyEvent.VK_B:
+                return (KeyEvent.VK_B);
+
+            case NativeKeyEvent.VK_C:
+                return (KeyEvent.VK_C);
+
+            case NativeKeyEvent.VK_D:
+                return (KeyEvent.VK_D);
+
+            case NativeKeyEvent.VK_E:
+                return (KeyEvent.VK_E);
+
+            case NativeKeyEvent.VK_F:
+                return (KeyEvent.VK_F);
+
+            case NativeKeyEvent.VK_G:
+                return (KeyEvent.VK_G);
+
+            case NativeKeyEvent.VK_H:
+                return (KeyEvent.VK_H);
+
+            case NativeKeyEvent.VK_I:
+                return (KeyEvent.VK_I);
+
+            case NativeKeyEvent.VK_J:
+                return (KeyEvent.VK_J);
+
+            case NativeKeyEvent.VK_K:
+                return (KeyEvent.VK_K);
+
+            case NativeKeyEvent.VK_L:
+                return (KeyEvent.VK_L);
+
+            case NativeKeyEvent.VK_M:
+                return (KeyEvent.VK_M);
+
+            case NativeKeyEvent.VK_N:
+                return (KeyEvent.VK_N);
+
+            case NativeKeyEvent.VK_O:
+                return (KeyEvent.VK_O);
+
+            case NativeKeyEvent.VK_P:
+                return (KeyEvent.VK_P);
+
+            case NativeKeyEvent.VK_Q:
+                return (KeyEvent.VK_Q);
+
+            case NativeKeyEvent.VK_R:
+                return (KeyEvent.VK_R);
+
+            case NativeKeyEvent.VK_S:
+                return (KeyEvent.VK_S);
+
+            case NativeKeyEvent.VK_T:
+                return (KeyEvent.VK_T);
+
+            case NativeKeyEvent.VK_U:
+                return (KeyEvent.VK_U);
+
+            case NativeKeyEvent.VK_V:
+                return (KeyEvent.VK_V);
+
+            case NativeKeyEvent.VK_W:
+                return (KeyEvent.VK_W);
+
+            case NativeKeyEvent.VK_X:
+                return (KeyEvent.VK_X);
+
+            case NativeKeyEvent.VK_Y:
+                return (KeyEvent.VK_Y);
+
+            case NativeKeyEvent.VK_Z:
+                return (KeyEvent.VK_Z);
+
+            case NativeKeyEvent.VK_BACK_QUOTE:
+                return (KeyEvent.VK_BACK_QUOTE);
+
+            case NativeKeyEvent.VK_0:
+                return (KeyEvent.VK_0);
+
+            case NativeKeyEvent.VK_1:
+                return (KeyEvent.VK_1);
+
+            case NativeKeyEvent.VK_2:
+                return (KeyEvent.VK_2);
+
+            case NativeKeyEvent.VK_3:
+                return (KeyEvent.VK_3);
+
+            case NativeKeyEvent.VK_4:
+                return (KeyEvent.VK_4);
+
+            case NativeKeyEvent.VK_5:
+                return (KeyEvent.VK_5);
+
+            case NativeKeyEvent.VK_6:
+                return (KeyEvent.VK_6);
+
+            case NativeKeyEvent.VK_7:
+                return (KeyEvent.VK_7);
+
+            case NativeKeyEvent.VK_8:
+                return (KeyEvent.VK_8);
+
+            case NativeKeyEvent.VK_9:
+                return (KeyEvent.VK_9);
+
+            case NativeKeyEvent.VK_MINUS:
+                return (KeyEvent.VK_MINUS);
+
+            case NativeKeyEvent.VK_EQUALS:
+                return (KeyEvent.VK_EQUALS);
+
+            case NativeKeyEvent.VK_TAB:
+                return (KeyEvent.VK_TAB);
+
+            case NativeKeyEvent.VK_ENTER:
+                return (KeyEvent.VK_ENTER);
+
+            case NativeKeyEvent.VK_OPEN_BRACKET:
+                return (KeyEvent.VK_OPEN_BRACKET);
+
+            case NativeKeyEvent.VK_CLOSE_BRACKET:
+                return (KeyEvent.VK_CLOSE_BRACKET);
+
+            case NativeKeyEvent.VK_BACK_SLASH:
+                return (KeyEvent.VK_BACK_SLASH);
+
+            case NativeKeyEvent.VK_SEMICOLON:
+                return (KeyEvent.VK_SEMICOLON);
+
+            case NativeKeyEvent.VK_QUOTE:
+                return (KeyEvent.VK_QUOTE);
+
+            case NativeKeyEvent.VK_COMMA:
+                return (KeyEvent.VK_COMMA);
+
+            case NativeKeyEvent.VK_PERIOD:
+                return (KeyEvent.VK_PERIOD);
+
+            case NativeKeyEvent.VK_SLASH:
+                return (KeyEvent.VK_SLASH);
+
+            case NativeKeyEvent.VK_SPACE:
+                return (KeyEvent.VK_SPACE);
+
+            case NativeKeyEvent.VK_CONTROL:
+                return (KeyEvent.VK_CONTROL);
+
+            case NativeKeyEvent.VK_ALT:
+                return (KeyEvent.VK_ALT);
+
+            case NativeKeyEvent.VK_SHIFT:
+                return (KeyEvent.VK_SHIFT);
+
+            default:
+                throw new IllegalArgumentException("Cannot type character " + nativeKeyCode);
+        }
+    }
+
     private String setClipboardContents(String aString) {
         StringSelection stringSelection = new StringSelection(aString);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -776,31 +781,25 @@ public class $$ extends Robot implements ClipboardOwner {
      * @param loop
      */
     public void loop(Loopable loop) {
-        try {
-            Scanner scanner;
-            scanner = new Scanner(new File("C:\\data.txt"));
-            while (scanner.hasNext()) {
-                loop.loopCode(scanner.nextLine());
-            }
-            scanner.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger($$.class.getName()).log(Level.SEVERE, null, ex);
+
+        Scanner scanner;
+        scanner = new Scanner(getClass().getResourceAsStream("loop.txt"));
+        while (scanner.hasNext()) {
+            loop.loopCode(scanner.nextLine());
         }
+        scanner.close();
+
     }
-    
-    public void loop(Loopable loop, String path) {
-        try {
-            Scanner scanner;
-            scanner = new Scanner(new File(path));
-            while (scanner.hasNext()) {
-                loop.loopCode(scanner.nextLine());
-            }
-            scanner.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger($$.class.getName()).log(Level.SEVERE, null, ex);
+
+    public void loop(Loopable loop, InputStream source) {
+        Scanner scanner;
+        scanner = new Scanner(source);
+        while (scanner.hasNext()) {
+            loop.loopCode(scanner.nextLine());
         }
+        scanner.close();
     }
-    
+
     public void loop(Loopable loop, File file) {
         try {
             Scanner scanner;
@@ -848,6 +847,7 @@ public class $$ extends Robot implements ClipboardOwner {
  * 
  * Create code for looping
  */
-interface Loopable{
+interface Loopable {
+
     public void loopCode(String nextLine);
 }
